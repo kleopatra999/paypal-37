@@ -1,7 +1,7 @@
 {
     "author": "Mark Engel <mark.c.engel@gmail.com> (https://github.com/mren)",
     "name": "paypal",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "engines": {
         "node": "0.8.x",
         "npm": "1.1.x"
