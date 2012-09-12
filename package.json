@@ -12,5 +12,6 @@
     "devDependencies": {
         "nodeunit": "0.7.4",
         "env-config": "0.2.0"
-    }
+    },
+    "main": "src/paypal"
 }
