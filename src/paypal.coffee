@@ -23,7 +23,10 @@ module.exports = (user, password, signature, sandbox = true, version = '92.0') -
                 'Content-Length': length
 
         req = https.request options, fetchAll cb
-        req.on 'error', (e) -> cb e
+        req.on 'error', (e) ->
+            console.log 'paypal error', e
+            req.abort()
+            cb e
         req.end body
 
     formatPayments: (payments) ->
