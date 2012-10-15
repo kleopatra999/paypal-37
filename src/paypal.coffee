@@ -22,9 +22,12 @@ module.exports = (user, password, signature, sandbox = true, version = '92.0') -
             headers:
                 'Content-Length': length
 
-        req = https.request options, fetchAll cb
+        req = https.request options, (res) ->
+            result = ''
+            res.on 'data', (chunk) -> result += chunk
+            res.once 'end', -> cb null, result
+
         req.on 'error', (e) ->
-            console.log 'paypal error', e
             req.abort()
             cb e
         req.end body
@@ -98,10 +101,6 @@ module.exports = (user, password, signature, sandbox = true, version = '92.0') -
         percentage = amount * 0.019
         amount - (percentage+transactionFee)
 
-fetchAll = (next, result = '') -> (res) ->
-    throw new Error 'no callback' unless next?
-    res.on 'data', (chunk) -> result += chunk
-    res.once 'end', -> next null, result
 
 correctCallback = (next) -> (err, result) ->
     return next err if err
