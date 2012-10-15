@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+    - 0.8
+
+env: >
+    PAYPAL_USER=digita_1347358116_biz_api1.lavabit.com
+    PAYPAL_PASSWORD=1347358140
+    PAYPAL_SIGNATURE=AgdqreKCJ3qxhGsheKAysU7SBGg0AizJVP7k1-ktPfpGN5XjLafAOfZ8
+
+script: ./script/run-tests
+
+notifications:
+  email: false
