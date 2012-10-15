@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+set -eu
+
+# there are problems when running multiple integration tests from the same
+# nodeunit call.
+# this is not pretty but has to do for now.
+
+# using a bash loop here, as xargs does not stop if a test fails
+for x in test/*.coffee; do nodeunit "$x"; done
