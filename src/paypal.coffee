@@ -1,5 +1,3 @@
-
-
 https = require 'https'
 qs = require 'querystring'
 url = require 'url'
@@ -101,11 +99,9 @@ module.exports = (user, password, signature, sandbox = true, version = '92.0') -
         percentage = amount * 0.019
         amount - (percentage+transactionFee)
 
-
 correctCallback = (next) -> (err, result) ->
     return next err if err
     parsed = qs.parse result
     ack = parsed.ACK
     return next parsed unless ack is 'Success'
     next null, parsed.TOKEN
-
