@@ -11,7 +11,6 @@ payments = [
     {amt: 10.50, desc: 'foo', currencycode: 'EUR'}
 ]
 
-
 module.exports =
     setUp: (cb) ->
         config = envConfig 'PAYPAL', spec, process.env
@@ -44,5 +43,3 @@ module.exports =
         paypal = @paypal
         url = paypal.redirectFromToken 'TOKEN', 'CMD', 'USERACTION'
         test.done()
-
-
